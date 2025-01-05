@@ -2,7 +2,7 @@ from pydantic import BaseModel, ValidationError
 from typing import Optional
 
 
-class CreateNewEnrollmentUserDTO(BaseModel):
+class CreateNewBasicUserDTO(BaseModel):
     uuid: Optional[str] = None
     value: Optional[str] = None
     success: bool = False
@@ -47,7 +47,7 @@ try:
         "uuid": "1234-5678-9012",
         "Value": "NewEnrollmentUser123"
     }
-    dto = CreateNewEnrollmentUserDTO.from_api_response(api_response)
+    dto = CreateNewBasicUserDTO.from_api_response(api_response)
     print(dto.success)
     print(dto.uuid)
     print(dto.value)
